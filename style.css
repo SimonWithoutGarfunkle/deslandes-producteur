@@ -59,3 +59,56 @@
   .producer-footer .footer-bottom>:nth-child(2),.producer-footer .footer-bottom>:last-child{text-align:left}
 }
 @media(max-width:360px){.brand{gap:6px;font-size:8px}.brand small{font-size:6px}.menu-toggle{padding:8px}.brand-logo{width:54px;flex-basis:54px}.brand-logo img{width:123px;left:-27px;top:-17px}}
+
+/* Gamme : photographies et descriptifs issus des affiches tarif particulier. */
+.wine-section .section-heading{grid-template-columns:1.4fr 1fr;gap:7%}
+.range-heading{display:flex;align-items:baseline;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding-bottom:16px;margin:44px 0 26px}
+.range-heading h3{font-size:32px;margin:0;letter-spacing:-.025em}
+.range-heading>span{font-size:10px;color:var(--muted)}
+.cuvee-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;align-items:start}
+.cuvee{min-width:0;border:1px solid var(--line);background:#faf9f3}
+.cuvee-image{position:relative;background:#ded8c9;height:365px;overflow:hidden}
+.cuvee-image>img{object-fit:cover;object-position:50% 62%;transition:transform .35s}
+.cuvee:hover .cuvee-image>img{transform:scale(1.025)}
+.cuvee-type{position:absolute;left:16px;bottom:16px;padding:7px 11px;background:#f5f3eaf2;color:var(--ink);font-size:10px;line-height:1.5}
+.cuvee-content{padding:26px 23px 22px}
+.cuvee-title{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.cuvee-title h3{font-size:29px;letter-spacing:-.04em;margin:0;line-height:1.15}
+.cuvee-year{font:18px var(--serif);color:var(--muted)}
+.cuvee-grape{font-size:10px;letter-spacing:.02em;color:var(--muted);margin:12px 0 20px;min-height:36px;line-height:1.8}
+.cuvee-profile{font-size:12px;line-height:1.9;min-height:70px;margin-bottom:24px;color:var(--muted)}
+.cuvee-details{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cuvee-details summary{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:10px;line-height:1.6;padding:15px 0;cursor:pointer;list-style:none}
+.cuvee-details summary::-webkit-details-marker{display:none}
+.cuvee-details summary>span{font-size:21px;line-height:1;transition:transform .2s}
+.cuvee-details[open] summary>span{transform:rotate(45deg)}
+.cuvee-details dl{margin:0;padding:0 0 18px}
+.cuvee-details dl>div+div{margin-top:16px}
+.cuvee-details dt{font-size:10px;font-weight:bold;margin-bottom:5px}
+.cuvee-details dd{font-size:11px;line-height:1.8;margin:0;color:var(--muted)}
+.cuvee-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:24px}
+.cuvee-price{font:30px/1.1 var(--serif)}
+.cuvee-price small{display:block;font:9px/1.6 var(--sans);color:var(--muted);margin-top:5px}
+.cuvee-bottom .text-link{font-size:10px;gap:12px}
+.cuvee-grid--duo{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cuvee-grid--duo .cuvee{display:grid;grid-template-columns:43% 57%;height:100%}
+.cuvee-grid--duo .cuvee-image{height:auto;min-height:450px}
+.cuvee-grid--duo .cuvee-image>img{position:absolute;inset:0}
+.cuvee-grid--duo .cuvee-content{padding:26px 22px;display:flex;flex-direction:column}
+.cuvee-grid--duo .cuvee-title{flex-wrap:wrap;gap:6px 12px}
+.cuvee-grid--duo .cuvee-bottom{margin-top:auto}
+.cuvee-grid--duo .cuvee-profile{min-height:0;flex:1}
+.cuvee-grid--duo .cuvee-grape{min-height:0}
+.range-note{border-top:1px solid var(--line);padding-top:22px;margin-top:32px;display:grid;grid-template-columns:1.4fr 1fr;gap:7%}
+.range-note p{font-size:10px;line-height:1.8;color:var(--muted);margin:0}
+@media(min-width:721px) and (max-width:1100px){
+ .cuvee-grid{gap:16px}.cuvee-content{padding:22px 16px}.cuvee-title{flex-wrap:wrap;gap:5px}.cuvee-title h3{font-size:26px}.cuvee-image{height:320px}.cuvee-profile{min-height:95px}
+ .cuvee-grid--duo .cuvee{display:block}.cuvee-grid--duo .cuvee-image{height:360px;min-height:0}.cuvee-grid--duo .cuvee-image img{object-fit:contain}.cuvee-grid--duo .cuvee-content{display:block}.cuvee-grid--duo .cuvee-profile{min-height:70px}
+}
+@media(max-width:720px){
+ .wine-section .section-heading{grid-template-columns:1fr;gap:24px}.range-heading{align-items:flex-start;flex-direction:column;gap:8px;margin-top:36px}.range-heading h3{font-size:30px}
+ .cuvee-grid,.cuvee-grid--duo{grid-template-columns:1fr;gap:28px}.cuvee-image{height:390px}.cuvee-image>img{object-position:50% 66%}
+ .cuvee-content{padding:25px 22px}.cuvee-title h3{font-size:30px}.cuvee-grape,.cuvee-profile{min-height:0}.cuvee-profile{font-size:13px}.cuvee-details summary{font-size:11px;min-height:50px}.cuvee-details dd{font-size:12px}
+ .cuvee-grid--duo .cuvee{display:block}.cuvee-grid--duo .cuvee-image{height:390px;min-height:0}.cuvee-grid--duo .cuvee-content{display:block;padding:25px 22px}.cuvee--rose .cuvee-image>img{object-fit:contain;background:#d3c0a3}
+ .range-note{grid-template-columns:1fr;gap:12px}.cuvee-bottom .text-link{font-size:11px}
+}
