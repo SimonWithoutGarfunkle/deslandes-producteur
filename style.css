@@ -257,3 +257,22 @@ h3,.format h3,.range-heading h3,.cuvee-title h3,.legal h2,
  .image-dialog img{max-height:65dvh}
 }
 @media(max-width:380px){.brand-logo.brand-logo--proposal{width:90px;height:54px;flex-basis:90px}}
+
+/* Focus card thumbnails on the labels; the dialog keeps the full source photo. */
+@media(min-width:1101px){
+ .cuvee-grid--duo{grid-template-columns:repeat(2,minmax(0,calc((100% - 52px) / 3)));column-gap:0;justify-content:space-evenly}
+ .cuvee-grid--duo .cuvee-content{padding:26px 23px 22px}
+ .cuvee-grid--duo .cuvee-profile{min-height:112px}
+ .cuvee-grid--duo .cuvee-grape{min-height:45px}
+}
+.cuvee .cuvee-image{height:auto;min-height:0;aspect-ratio:4 / 3;background:#ded8c9}
+.cuvee .cuvee-image .image-zoom{width:100%;height:100%;overflow:hidden}
+.cuvee .cuvee-image .image-zoom img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% var(--bottle-position,82%);background:transparent;transform:scale(var(--bottle-scale,1.2));transform-origin:var(--bottle-origin,50% 60%)}
+/* Compensate for Voyage partage's more distant, off-centre framing. */
+.cuvee .image-zoom:has(img[src*="bouteille-voyage-partage-"]){--bottle-scale:1.65;--bottle-origin:74% 60%;--bottle-position:76%}
+.cuvee .image-zoom:has(img[src*="bouteille-trempette-"]){--bottle-origin:100% 60%}
+.cuvee .zoom-hint{font-size:0;padding:7px 10px}
+.cuvee .zoom-hint::after{content:"↗";font-size:18px;line-height:1}
+@media(hover:hover) and (pointer:fine){
+ .cuvee:hover .cuvee-image .image-zoom img{transform:scale(calc(var(--bottle-scale,1.2) * 1.025))}
+}
