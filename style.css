@@ -32,9 +32,9 @@
 
 /* Les deux rangées partagent exactement les mêmes colonnes. */
 /* L’espace réservé au bandeau fixe appartient au footer pour prolonger son fond. */
-.producer-footer{padding:60px 8% 85px;background:#eeeee2;border-top:1px solid var(--line)}
+.producer-footer{padding:36px 8% 64px;background:#eeeee2;border-top:1px solid var(--line)}
 .producer-footer .footer-top,.producer-footer .footer-bottom{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:center}
-.producer-footer .footer-top{padding-bottom:40px}
+.producer-footer .footer-top{padding-bottom:24px}
 .producer-footer .footer-name{font:var(--text-body)/1.2 var(--serif);letter-spacing:-.025em}
 .producer-footer .footer-name span{font:var(--text-body)/1.7 var(--sans);letter-spacing:.02em;margin-top:12px;color:var(--muted)}
 .footer-place{text-align:center;display:flex;flex-direction:column;gap:4px;font:var(--text-body)/1.4 var(--serif)}
@@ -43,7 +43,7 @@
 .producer-footer .back-top{justify-self:end;display:inline-flex;align-items:center;gap:14px;}
 .back-top span{display:grid;place-items:center;width:42px;height:42px;border:1px solid #253c3050;border-radius:50%;transition:background .2s,color .2s}
 .back-top:hover span{background:var(--ink);color:var(--paper)}
-.producer-footer .footer-bottom{padding-top:24px;color:var(--muted)}
+.producer-footer .footer-bottom{padding-top:16px;color:var(--muted)}
 .footer-links{display:flex;flex-direction:column;gap:.5rem}
 .producer-footer .footer-bottom>:nth-child(2){text-align:center}
 .producer-footer .footer-bottom>:last-child{text-align:right}
@@ -62,9 +62,9 @@
   .ribbon.provenance{grid-template-columns:1fr;padding:12px 7%}
   .provenance p{padding:22px 0}
   .provenance p+p{border-left:0;border-top:1px solid #253c3030}
-  .producer-footer{padding:42px 7% 128px}
+  .producer-footer{padding:28px 7% 96px}
   .producer-footer .footer-top,.producer-footer .footer-bottom{grid-template-columns:1fr;gap:26px;justify-items:start}
-  .producer-footer .footer-top{padding-bottom:30px}
+  .producer-footer .footer-top{padding-bottom:20px}
   .footer-place{text-align:left;align-items:flex-start;border-left:2px solid #253c3040;padding-left:18px}
   .producer-footer .back-top{justify-self:start}.producer-footer .footer-bottom{gap:16px;}
   .producer-footer .footer-bottom>:nth-child(2),.producer-footer .footer-bottom>:last-child{text-align:left}
@@ -171,7 +171,7 @@ h3,.format h3,.range-heading h3,.cuvee-title h3,.legal h2,
 .timeline{gap:30px}
 .format-note{text-align:left}
 .footer-place{overflow-wrap:anywhere}
-.producer-footer .footer-top,.producer-footer .footer-bottom{gap:24px}
+.producer-footer .footer-top,.producer-footer .footer-bottom{gap:18px}
 @media(min-width:721px) and (max-width:1100px){
  :root{--title-hero:4.5rem;--title-section:3rem}
  .header{height:auto;min-height:116px;flex-wrap:wrap;gap:18px;padding:18px 5%}
@@ -200,7 +200,7 @@ h3,.format h3,.range-heading h3,.cuvee-title h3,.legal h2,
  .range-note{gap:18px}
  .contact-mail{font-size:var(--text-body)}
  .timeline{gap:24px;flex-wrap:wrap}
- .producer-footer .footer-top,.producer-footer .footer-bottom{gap:24px}
+ .producer-footer .footer-top,.producer-footer .footer-bottom{gap:18px}
 }
 
 /* Retours : identité, vignoble, prestations et vues agrandies. */
