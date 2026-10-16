@@ -1,0 +1,27 @@
+/* Présentation autonome : aucune police, image ou ressource tierce. */
+:root { color-scheme: light; --ink: #253c30; --paper: #f5f3ea; --line: #c5cbbd; }
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--paper); font: 1rem/1.65 system-ui, sans-serif; }
+main { max-width: 46rem; margin: auto; padding: 3rem 1.25rem; }
+h1, h2 { line-height: 1.2; }
+h1 { margin: .5rem 0 1rem; font: 400 clamp(2rem, 7vw, 3rem)/1.15 Georgia, serif; overflow-wrap: anywhere; }
+h2 { margin: 2rem 0 .75rem; font-size: 1.25rem; }
+p { margin: .75rem 0; }
+.eyebrow { font-size: .8rem; text-transform: uppercase; letter-spacing: .12em; }
+.identity { padding-bottom: 1.25rem; border-bottom: 1px solid var(--line); }
+.identity p { margin: .35rem 0; }
+.notice { padding: 1rem; border: 1px solid var(--line); background: #ececdd; }
+table { width: 100%; border-collapse: collapse; background: #fffdf7; }
+caption { text-align: left; font-weight: 600; margin-bottom: .75rem; }
+th, td { padding: .75rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { font-weight: 500; }
+td { text-align: right; font-variant-numeric: tabular-nums; }
+.sub { padding-left: 1.5rem; }
+dl { margin: 0; }
+dl > div { display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; padding: .6rem 0; border-bottom: 1px solid var(--line); }
+dt { font-weight: 600; }
+dd { margin: 0; }
+address { font-style: normal; }
+.bottler { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+@media (max-width: 380px) { main { padding: 1.5rem 1rem; } th, td { padding: .6rem .4rem; } dl > div { grid-template-columns: 1fr; gap: .2rem; } }
+@media print { body { background: white; color: black; } main { max-width: none; padding: 0; } table { background: white; } section, table { break-inside: avoid; } }

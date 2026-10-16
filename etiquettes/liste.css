@@ -1,0 +1,8 @@
+.labels-intro { max-width: 40rem; }
+.labels-year { margin: 2.5rem 0 1rem; font: 400 2rem/1.2 var(--serif); }
+.labels-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+.labels-list li { border-bottom: 1px solid var(--line); }
+.labels-list a { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.4rem 0; text-decoration: none; }
+.labels-list a:hover { text-decoration: underline; }
+.labels-list strong { font: 400 1.5rem/1.3 var(--serif); }
+.labels-list small { display: block; color: var(--muted); font-size: .875rem; margin-top: .25rem; }

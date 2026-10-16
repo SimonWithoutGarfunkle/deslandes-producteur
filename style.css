@@ -44,6 +44,7 @@
 .back-top span{display:grid;place-items:center;width:42px;height:42px;border:1px solid #253c3050;border-radius:50%;transition:background .2s,color .2s}
 .back-top:hover span{background:var(--ink);color:var(--paper)}
 .producer-footer .footer-bottom{padding-top:24px;color:var(--muted)}
+.footer-links{display:flex;flex-direction:column;gap:.5rem}
 .producer-footer .footer-bottom>:nth-child(2){text-align:center}
 .producer-footer .footer-bottom>:last-child{text-align:right}
 @media(min-width:721px) and (max-width:1000px){
