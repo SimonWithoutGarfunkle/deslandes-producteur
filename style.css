@@ -32,9 +32,9 @@
 
 /* Les deux rangées partagent exactement les mêmes colonnes. */
 /* L’espace réservé au bandeau fixe appartient au footer pour prolonger son fond. */
-.producer-footer{padding:60px 8% 85px;background:#eeeee2;border-top:1px solid var(--line)}
+.producer-footer{padding:36px 8% 64px;background:#eeeee2;border-top:1px solid var(--line)}
 .producer-footer .footer-top,.producer-footer .footer-bottom{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:center}
-.producer-footer .footer-top{padding-bottom:40px}
+.producer-footer .footer-top{padding-bottom:24px}
 .producer-footer .footer-name{font:var(--text-body)/1.2 var(--serif);letter-spacing:-.025em}
 .producer-footer .footer-name span{font:var(--text-body)/1.7 var(--sans);letter-spacing:.02em;margin-top:12px;color:var(--muted)}
 .footer-place{text-align:center;display:flex;flex-direction:column;gap:4px;font:var(--text-body)/1.4 var(--serif)}
@@ -43,7 +43,8 @@
 .producer-footer .back-top{justify-self:end;display:inline-flex;align-items:center;gap:14px;}
 .back-top span{display:grid;place-items:center;width:42px;height:42px;border:1px solid #253c3050;border-radius:50%;transition:background .2s,color .2s}
 .back-top:hover span{background:var(--ink);color:var(--paper)}
-.producer-footer .footer-bottom{padding-top:24px;color:var(--muted)}
+.producer-footer .footer-bottom{padding-top:16px;color:var(--muted)}
+.footer-links{display:flex;flex-direction:column;gap:.5rem}
 .producer-footer .footer-bottom>:nth-child(2){text-align:center}
 .producer-footer .footer-bottom>:last-child{text-align:right}
 @media(min-width:721px) and (max-width:1000px){
@@ -61,9 +62,9 @@
   .ribbon.provenance{grid-template-columns:1fr;padding:12px 7%}
   .provenance p{padding:22px 0}
   .provenance p+p{border-left:0;border-top:1px solid #253c3030}
-  .producer-footer{padding:42px 7% 128px}
+  .producer-footer{padding:28px 7% 96px}
   .producer-footer .footer-top,.producer-footer .footer-bottom{grid-template-columns:1fr;gap:26px;justify-items:start}
-  .producer-footer .footer-top{padding-bottom:30px}
+  .producer-footer .footer-top{padding-bottom:20px}
   .footer-place{text-align:left;align-items:flex-start;border-left:2px solid #253c3040;padding-left:18px}
   .producer-footer .back-top{justify-self:start}.producer-footer .footer-bottom{gap:16px;}
   .producer-footer .footer-bottom>:nth-child(2),.producer-footer .footer-bottom>:last-child{text-align:left}
@@ -170,7 +171,7 @@ h3,.format h3,.range-heading h3,.cuvee-title h3,.legal h2,
 .timeline{gap:30px}
 .format-note{text-align:left}
 .footer-place{overflow-wrap:anywhere}
-.producer-footer .footer-top,.producer-footer .footer-bottom{gap:24px}
+.producer-footer .footer-top,.producer-footer .footer-bottom{gap:18px}
 @media(min-width:721px) and (max-width:1100px){
  :root{--title-hero:4.5rem;--title-section:3rem}
  .header{height:auto;min-height:116px;flex-wrap:wrap;gap:18px;padding:18px 5%}
@@ -199,7 +200,7 @@ h3,.format h3,.range-heading h3,.cuvee-title h3,.legal h2,
  .range-note{gap:18px}
  .contact-mail{font-size:var(--text-body)}
  .timeline{gap:24px;flex-wrap:wrap}
- .producer-footer .footer-top,.producer-footer .footer-bottom{gap:24px}
+ .producer-footer .footer-top,.producer-footer .footer-bottom{gap:18px}
 }
 
 /* Retours : identité, vignoble, prestations et vues agrandies. */
@@ -207,14 +208,15 @@ h3,.format h3,.range-heading h3,.cuvee-title h3,.legal h2,
 .producer-hero .hero-image>img{height:125%;object-position:center top}
 .header{gap:24px;padding-inline:4%}
 .header nav{gap:20px;flex-wrap:wrap}
-.brand-logo.brand-logo--proposal{width:156px;height:94px;flex:0 0 156px;mix-blend-mode:multiply}
-.brand-logo--proposal img{width:584.667%;height:auto;left:-30%;top:-150%;filter:brightness(1.21);object-fit:contain}
+.brand-logo.brand-logo--proposal{width:156px;height:94px;flex:0 0 156px}
+.brand-logo--proposal img{width:584.667%;height:auto;left:-30%;top:-150%;object-fit:contain}
 .brand-tagline{max-width:170px}
 .provenance-label{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap}
 .provenance-label img{width:54px;height:auto;flex-shrink:0}
 .story-more{padding:16px 0 24px}
 .story-more .timeline{flex-wrap:wrap;gap:24px}
 .vineyard-copy{display:grid;grid-template-columns:1fr 1fr;gap:7%;color:var(--muted)}
+.parcel-relief{color:var(--muted)}
 .parcel-map{max-width:900px;margin:16px auto 0}
 .parcel-map img{height:auto}
 .image-zoom{display:block;position:relative;width:100%;height:100%;cursor:zoom-in}
@@ -257,3 +259,77 @@ h3,.format h3,.range-heading h3,.cuvee-title h3,.legal h2,
  .image-dialog img{max-height:65dvh}
 }
 @media(max-width:380px){.brand-logo.brand-logo--proposal{width:90px;height:54px;flex-basis:90px}}
+
+/* Focus card thumbnails on the labels; the dialog keeps the full source photo. */
+@media(min-width:1101px){
+ .cuvee-grid--duo{grid-template-columns:repeat(2,minmax(0,calc((100% - 52px) / 3)));column-gap:0;justify-content:space-evenly}
+ .cuvee-grid--duo .cuvee-content{padding:26px 23px 22px}
+ .cuvee-grid--duo .cuvee-profile{min-height:112px}
+ .cuvee-grid--duo .cuvee-grape{min-height:45px}
+}
+.cuvee .cuvee-image{height:auto;min-height:0;aspect-ratio:4 / 3;background:#ded8c9}
+.cuvee .cuvee-image .image-zoom{width:100%;height:100%;overflow:hidden}
+.cuvee .cuvee-image .image-zoom img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% var(--bottle-position,82%);background:transparent;transform:scale(var(--bottle-scale,1.2));transform-origin:var(--bottle-origin,50% 60%)}
+/* Compensate for Voyage partage's more distant, off-centre framing. */
+.cuvee .image-zoom:has(img[src*="bouteille-voyage-partage-"]){--bottle-scale:1.65;--bottle-origin:74% 60%;--bottle-position:76%}
+.cuvee .image-zoom:has(img[src*="bouteille-trempette-"]){--bottle-origin:100% 60%}
+.cuvee .zoom-hint{font-size:0;padding:7px 10px}
+.cuvee .zoom-hint::after{content:"↗";font-size:18px;line-height:1}
+@media(hover:hover) and (pointer:fine){
+ .cuvee:hover .cuvee-image .image-zoom img{transform:scale(calc(var(--bottle-scale,1.2) * 1.025))}
+}
+
+/* Centre the identity independently of the navigation and mobile menu. */
+.header{height:auto;min-height:0;display:grid;grid-template-columns:1fr auto 1fr;gap:18px;padding:18px 5% 20px}
+.header .brand{grid-column:2;justify-self:center;flex-direction:column;max-width:none;gap:8px;text-align:center}
+.header .brand-logo.brand-logo--proposal{width:180px;height:108px;flex:0 0 108px}
+.header .brand-tagline{font-size:.6875rem;letter-spacing:.12em}
+.header .brand-tagline small{display:inline;font-size:inherit;margin:0 0 0 .5em;letter-spacing:inherit}
+.header nav{grid-column:1 / -1;justify-content:center;flex-wrap:wrap;width:100%;gap:16px 34px;padding:0}
+.header .menu-toggle{grid-column:3;grid-row:1;justify-self:end;align-self:center}
+@media(max-width:720px){
+ .header{padding:14px 5%;column-gap:0;row-gap:14px;grid-template-columns:1fr minmax(0,180px) 1fr}
+ .header .brand-logo.brand-logo--proposal{width:150px;height:90px;flex-basis:90px}
+ .header .brand-tagline{font-size:.5625rem;letter-spacing:.04em}
+ .header .brand-tagline small{display:block;margin-top:3px}
+ .header .menu-toggle{font-size:.75rem;padding:8px}
+ .header nav{gap:12px 20px;padding:10px 0}
+}
+
+/* Locally hosted Embla galleries, with a scrollable fallback without JavaScript. */
+.photo-carousel{position:relative;min-width:0;background:#ded8c9;overflow:hidden}
+.section-carousel{margin:0 0 38px}
+.embla-viewport{height:clamp(280px,42vw,520px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.embla-container{display:flex;height:100%;touch-action:pan-y pinch-zoom}
+.embla-slide{position:relative;flex:0 0 100%;min-width:0;height:100%;scroll-snap-align:start;overflow:hidden}
+.embla-slide img{width:100%;height:100%;object-fit:cover}
+.embla-slide::after{content:"";position:absolute;inset:50% 0 0;background:linear-gradient(transparent,#102218c9);pointer-events:none}
+.embla-slide figcaption{position:absolute;left:28px;right:28px;bottom:24px;z-index:1;margin:0;color:white;font-size:var(--text-meta);line-height:1.6;text-shadow:0 1px 3px #0008}
+.photo-carousel.is-ready .embla-viewport{overflow:hidden;scroll-snap-type:none}
+.photo-carousel.is-ready .embla-slide{scroll-snap-align:none}
+.carousel-controls{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);z-index:2;display:flex;align-items:center;justify-content:center;width:max-content;max-width:calc(100% - 24px);gap:6px;padding:6px;background:#f5f3eaf2;border:1px solid #ffffff80;border-radius:999px;box-shadow:0 4px 18px #10221826;backdrop-filter:blur(8px)}
+.carousel-controls[hidden]{display:none}
+.carousel-controls button{min-width:44px;min-height:44px;border:0;border-radius:50%;background:transparent;color:var(--ink);cursor:pointer;padding:7px 12px;line-height:1}
+.carousel-controls button:hover{background:var(--accent)}
+.carousel-counter{min-width:44px;text-align:center;font-size:var(--text-meta);font-variant-numeric:tabular-nums}
+.carousel-controls .carousel-play{margin-left:2px;width:100px;min-width:100px;padding-inline:6px;border-radius:999px;background:#253c300b;font-size:var(--text-meta)}
+.photo-carousel.is-ready .embla-slide figcaption{bottom:96px}
+.hero-carousel .embla-viewport{position:absolute;inset:0;height:100%}
+.hero-carousel .embla-slide figcaption{left:32px;right:32px}
+.hero-carousel.hero-image::after{display:none}
+.hero-carousel .embla-slide:has(.slide-photo),#conseils .embla-slide:has(.slide-photo),#photos-degustation .embla-slide{background:var(--ink)}
+.slide-photo{height:100%;max-width:100%;margin-inline:auto;overflow:hidden}
+.slide-photo--chai{aspect-ratio:2 / 3}
+.slide-photo--press{aspect-ratio:3 / 5}
+.embla-slide .slide-photo img{object-fit:cover;object-position:center top}
+.hero-carousel img[src="assets/gamme-vins-table.jpg"]{object-fit:contain;background:var(--ink)}
+#photos-degustation .embla-slide img{object-fit:contain;object-position:center}
+@media(max-width:720px){
+ .hero-carousel{height:460px}
+ .embla-viewport{height:320px}
+ .embla-slide figcaption{left:20px;right:20px;bottom:20px}
+ .carousel-controls{bottom:16px;gap:4px}
+ .carousel-counter{min-width:32px}
+ .photo-carousel.is-ready .embla-slide figcaption{bottom:88px}
+ .hero-carousel .embla-slide figcaption{left:20px;right:20px}
+}
