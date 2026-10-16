@@ -1,5 +1,5 @@
 'use strict';
-// Progressive enhancement only. No cookies, storage, analytics or network requests.
+// Progressive enhancement only. No cookies, storage, analytics or third-party requests.
 document.documentElement.classList.add('js');
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#navigation');
@@ -60,4 +60,77 @@ function enableImageDialog(imageDialog) {
 const imageDialog = document.querySelector('.image-dialog');
 if (typeof HTMLDialogElement !== 'undefined' && imageDialog instanceof HTMLDialogElement) {
   enableImageDialog(imageDialog);
+}
+
+// Embla 8.6.0 and Autoplay are served locally; the first photo remains usable if they fail.
+if (typeof EmblaCarousel === 'function' && typeof EmblaCarouselAutoplay === 'function') {
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  document.querySelectorAll('[data-carousel]').forEach(root => {
+    const viewport = root.querySelector('.embla-viewport');
+    const controls = root.querySelector('.carousel-controls');
+    const playButton = root.querySelector('[data-play]');
+    const counter = root.querySelector('.carousel-counter');
+    const autoplay = EmblaCarouselAutoplay({
+      delay: 6000, playOnInit: false, stopOnInteraction: true, stopOnFocusIn: false
+    });
+    const embla = EmblaCarousel(viewport, {
+      loop: true,
+      breakpoints: { '(prefers-reduced-motion: reduce)': { duration: 0 } }
+    }, [autoplay]);
+    let wantsPlayback = !reducedMotion.matches;
+    let visible = false;
+    let hovered = false;
+    const updatePlayback = () => {
+      const shouldPlay = wantsPlayback && visible && !hovered && !document.hidden;
+      if (shouldPlay && !autoplay.isPlaying()) autoplay.play();
+      if (!shouldPlay) autoplay.stop();
+      playButton.textContent = wantsPlayback ? 'Suspendre' : 'Démarrer';
+      const actionLabel = wantsPlayback ? 'Suspendre le défilement automatique' : 'Démarrer le défilement automatique';
+      playButton.setAttribute('aria-label', actionLabel);
+      playButton.title = actionLabel;
+      counter.setAttribute('aria-live', autoplay.isPlaying() ? 'off' : 'polite');
+    };
+    const updateSelection = () => {
+      const selected = embla.selectedScrollSnap();
+      counter.textContent = `${selected + 1} / ${embla.slideNodes().length}`;
+      embla.slideNodes().forEach((slide, index) => slide.setAttribute('aria-hidden', String(index !== selected)));
+    };
+    const stopPlayback = () => { wantsPlayback = false; updatePlayback(); };
+    const navigate = direction => {
+      stopPlayback();
+      direction < 0 ? embla.scrollPrev() : embla.scrollNext();
+    };
+    root.querySelector('[data-prev]').addEventListener('click', () => navigate(-1));
+    root.querySelector('[data-next]').addEventListener('click', () => navigate(1));
+    playButton.addEventListener('click', () => {
+      wantsPlayback = !wantsPlayback;
+      hovered = false;
+      updatePlayback();
+    });
+    viewport.addEventListener('keydown', event => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      navigate(event.key === 'ArrowLeft' ? -1 : 1);
+    });
+    root.addEventListener('focusin', event => { if (event.target !== playButton) stopPlayback(); });
+    root.addEventListener('mouseenter', () => { hovered = true; updatePlayback(); });
+    root.addEventListener('mouseleave', () => { hovered = false; updatePlayback(); });
+    embla.on('pointerDown', stopPlayback);
+    embla.on('select', updateSelection);
+    embla.on('reInit', () => { updateSelection(); updatePlayback(); });
+    document.addEventListener('visibilitychange', updatePlayback);
+    reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) stopPlayback(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(entries => {
+        visible = entries[0].isIntersecting;
+        updatePlayback();
+      }, { threshold: 0.25 }).observe(root);
+    } else {
+      visible = true;
+    }
+    root.classList.add('is-ready');
+    controls.hidden = false;
+    updateSelection();
+    updatePlayback();
+  });
 }
