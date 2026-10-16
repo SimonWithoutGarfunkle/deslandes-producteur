@@ -216,6 +216,7 @@ h3,.format h3,.range-heading h3,.cuvee-title h3,.legal h2,
 .story-more{padding:16px 0 24px}
 .story-more .timeline{flex-wrap:wrap;gap:24px}
 .vineyard-copy{display:grid;grid-template-columns:1fr 1fr;gap:7%;color:var(--muted)}
+.parcel-relief{color:var(--muted)}
 .parcel-map{max-width:900px;margin:16px auto 0}
 .parcel-map img{height:auto}
 .image-zoom{display:block;position:relative;width:100%;height:100%;cursor:zoom-in}
