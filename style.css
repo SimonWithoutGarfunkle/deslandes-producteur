@@ -208,10 +208,11 @@ h3,.format h3,.range-heading h3,.cuvee-title h3,.legal h2,
 .producer-hero .hero-image>img{height:125%;object-position:center top}
 .header{gap:24px;padding-inline:4%}
 .header nav{gap:20px;flex-wrap:wrap}
-.brand-logo.brand-logo--proposal{width:156px;height:94px;flex:0 0 156px}
-.brand-logo--proposal img{width:584.667%;height:auto;left:-30%;top:-150%;object-fit:contain}
+.brand-logo.brand-logo--official{width:156px;height:94px;flex:0 0 156px}
+.brand-logo--official{background:#033f5d;padding:7px;border-radius:2px}
+.brand-logo--official img{position:static;display:block;width:100%;height:100%;max-width:100%;object-fit:contain}
 .brand-tagline{max-width:170px}
-.provenance-label{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap}
+.provenance-label{display:flex;align-items:center;justify-content:center;gap:clamp(10px,2vw,18px);flex-wrap:nowrap}
 .provenance-label img{width:54px;height:auto;flex-shrink:0}
 .story-more{padding:16px 0 24px}
 .story-more .timeline{flex-wrap:wrap;gap:24px}
@@ -247,7 +248,7 @@ h3,.format h3,.range-heading h3,.cuvee-title h3,.legal h2,
 @media(max-width:720px){
  .header{gap:12px;padding-inline:5%}
  .brand{max-width:calc(100% - 90px);gap:8px}
- .brand-logo.brand-logo--proposal{width:110px;height:66px;flex-basis:110px}
+ .brand-logo.brand-logo--official{width:110px;height:66px;flex-basis:110px}
  .brand-tagline{font-size:.6875rem;letter-spacing:0}
  .brand-tagline small{font-size:.6875rem}
  .vineyard-copy,.advice-grid{grid-template-columns:1fr;gap:20px}
@@ -258,7 +259,7 @@ h3,.format h3,.range-heading h3,.cuvee-title h3,.legal h2,
  .image-dialog{padding:12px}
  .image-dialog img{max-height:65dvh}
 }
-@media(max-width:380px){.brand-logo.brand-logo--proposal{width:90px;height:54px;flex-basis:90px}}
+@media(max-width:380px){.brand-logo.brand-logo--official{width:90px;height:54px;flex-basis:90px}}
 
 /* Focus card thumbnails on the labels; the dialog keeps the full source photo. */
 @media(min-width:1101px){
@@ -272,7 +273,7 @@ h3,.format h3,.range-heading h3,.cuvee-title h3,.legal h2,
 .cuvee .cuvee-image .image-zoom img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% var(--bottle-position,82%);background:transparent;transform:scale(var(--bottle-scale,1.2));transform-origin:var(--bottle-origin,50% 60%)}
 /* Compensate for Voyage partage's more distant, off-centre framing. */
 .cuvee .image-zoom:has(img[src*="bouteille-voyage-partage-"]){--bottle-scale:1.65;--bottle-origin:74% 60%;--bottle-position:76%}
-.cuvee .image-zoom:has(img[src*="bouteille-trempette-"]){--bottle-origin:100% 60%}
+.cuvee .image-zoom:has(img[src*="bouteille-trempette-"]){--bottle-origin:100% 60%;--bottle-position:75%}
 .cuvee .zoom-hint{font-size:0;padding:7px 10px}
 .cuvee .zoom-hint::after{content:"↗";font-size:18px;line-height:1}
 @media(hover:hover) and (pointer:fine){
@@ -282,14 +283,14 @@ h3,.format h3,.range-heading h3,.cuvee-title h3,.legal h2,
 /* Centre the identity independently of the navigation and mobile menu. */
 .header{height:auto;min-height:0;display:grid;grid-template-columns:1fr auto 1fr;gap:18px;padding:18px 5% 20px}
 .header .brand{grid-column:2;justify-self:center;flex-direction:column;max-width:none;gap:8px;text-align:center}
-.header .brand-logo.brand-logo--proposal{width:180px;height:108px;flex:0 0 108px}
+.header .brand-logo.brand-logo--official{width:180px;height:108px;flex:0 0 108px}
 .header .brand-tagline{font-size:.6875rem;letter-spacing:.12em}
 .header .brand-tagline small{display:inline;font-size:inherit;margin:0 0 0 .5em;letter-spacing:inherit}
 .header nav{grid-column:1 / -1;justify-content:center;flex-wrap:wrap;width:100%;gap:16px 34px;padding:0}
 .header .menu-toggle{grid-column:3;grid-row:1;justify-self:end;align-self:center}
 @media(max-width:720px){
  .header{padding:14px 5%;column-gap:0;row-gap:14px;grid-template-columns:1fr minmax(0,180px) 1fr}
- .header .brand-logo.brand-logo--proposal{width:150px;height:90px;flex-basis:90px}
+ .header .brand-logo.brand-logo--official{width:150px;height:90px;flex-basis:90px}
  .header .brand-tagline{font-size:.5625rem;letter-spacing:.04em}
  .header .brand-tagline small{display:block;margin-top:3px}
  .header .menu-toggle{font-size:.75rem;padding:8px}
@@ -322,7 +323,7 @@ h3,.format h3,.range-heading h3,.cuvee-title h3,.legal h2,
 .slide-photo--chai{aspect-ratio:2 / 3}
 .slide-photo--press{aspect-ratio:3 / 5}
 .embla-slide .slide-photo img{object-fit:cover;object-position:center top}
-.hero-carousel img[src="assets/gamme-vins-table.jpg"]{object-fit:contain;background:var(--ink)}
+.hero-carousel img[src="assets/gamme-vins-table.jpg"]{object-fit:contain;background:var(--ink);filter:brightness(1.12)}
 #photos-degustation .embla-slide img{object-fit:contain;object-position:center}
 @media(max-width:720px){
  .hero-carousel{height:460px}
@@ -333,3 +334,13 @@ h3,.format h3,.range-heading h3,.cuvee-title h3,.legal h2,
  .photo-carousel.is-ready .embla-slide figcaption{bottom:88px}
  .hero-carousel .embla-slide figcaption{left:20px;right:20px}
 }
+
+/* Temporary palette switcher for client review. */
+.story{background:var(--surface,#e8eadf)}
+.format+.format{background:var(--surface-2,#edeee2)}
+body[data-theme="logo"]{--paper:#f8f5e9;--ink:#063f5d;--muted:#496777;--accent:#f0d36f;--line:#d8d1b5;--surface:#f0ead1;--surface-2:#e7dfbf}
+body[data-theme="terre"]{--paper:#f8f1e9;--ink:#643b32;--muted:#795e54;--accent:#e4c1a0;--line:#ddcabe;--surface:#f0e1d4;--surface-2:#ead5c4}
+body[data-theme="vigne"]{--paper:#f5eee5;--ink:#6d1935;--muted:#79505a;--accent:#a8b76a;--line:#d8c4bc;--surface:#ead9ce;--surface-2:#dbe0bf}
+.theme-switch{position:fixed;right:18px;bottom:66px;z-index:25;border:1px solid var(--ink);background:var(--paper);color:var(--ink);padding:10px 16px;box-shadow:0 3px 14px #14251925;cursor:pointer;font-size:.875rem}
+.theme-switch:hover{background:var(--accent)}
+body[data-theme="logo"] .theme-switch{border-color:#063f5d}

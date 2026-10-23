@@ -1,6 +1,23 @@
 'use strict';
 // Progressive enhancement only. No cookies, storage, analytics or third-party requests.
 document.documentElement.classList.add('js');
+const themeSwitch = document.querySelector('.theme-switch');
+if (themeSwitch instanceof HTMLButtonElement) {
+  const themes = [
+    { id: '', name: 'Actuel' },
+    { id: 'logo', name: 'Bleu & jaune' },
+    { id: 'terre', name: 'Terre cuite' },
+    { id: 'vigne', name: 'Rouge de vigne' }
+  ];
+  let themeIndex = 0;
+  themeSwitch.addEventListener('click', () => {
+    themeIndex = (themeIndex + 1) % themes.length;
+    const theme = themes[themeIndex];
+    if (theme.id) document.body.dataset.theme = theme.id;
+    else delete document.body.dataset.theme;
+    themeSwitch.textContent = `Thème : ${theme.name}`;
+  });
+}
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#navigation');
 if (toggle instanceof HTMLButtonElement && nav instanceof HTMLElement) {
