@@ -334,3 +334,13 @@ h3,.format h3,.range-heading h3,.cuvee-title h3,.legal h2,
  .photo-carousel.is-ready .embla-slide figcaption{bottom:88px}
  .hero-carousel .embla-slide figcaption{left:20px;right:20px}
 }
+
+/* Temporary palette switcher for client review. */
+.story{background:var(--surface,#e8eadf)}
+.format+.format{background:var(--surface-2,#edeee2)}
+body[data-theme="logo"]{--paper:#f8f5e9;--ink:#063f5d;--muted:#496777;--accent:#f0d36f;--line:#d8d1b5;--surface:#f0ead1;--surface-2:#e7dfbf}
+body[data-theme="terre"]{--paper:#f8f1e9;--ink:#643b32;--muted:#795e54;--accent:#e4c1a0;--line:#ddcabe;--surface:#f0e1d4;--surface-2:#ead5c4}
+body[data-theme="vigne"]{--paper:#f5eee5;--ink:#6d1935;--muted:#79505a;--accent:#a8b76a;--line:#d8c4bc;--surface:#ead9ce;--surface-2:#dbe0bf}
+.theme-switch{position:fixed;right:18px;bottom:66px;z-index:25;border:1px solid var(--ink);background:var(--paper);color:var(--ink);padding:10px 16px;box-shadow:0 3px 14px #14251925;cursor:pointer;font-size:.875rem}
+.theme-switch:hover{background:var(--accent)}
+body[data-theme="logo"] .theme-switch{border-color:#063f5d}
