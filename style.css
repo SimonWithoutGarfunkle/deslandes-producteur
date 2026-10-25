@@ -209,7 +209,7 @@ h3,.format h3,.range-heading h3,.cuvee-title h3,.legal h2,
 .header{gap:24px;padding-inline:4%}
 .header nav{gap:20px;flex-wrap:wrap}
 .brand-logo.brand-logo--official{width:156px;height:94px;flex:0 0 156px}
-.brand-logo--official{background:#033f5d;padding:7px;border-radius:2px}
+.brand-logo--official{padding:0}
 .brand-logo--official img{position:static;display:block;width:100%;height:100%;max-width:100%;object-fit:contain}
 .brand-tagline{max-width:170px}
 .provenance-label{display:flex;align-items:center;justify-content:center;gap:clamp(10px,2vw,18px);flex-wrap:nowrap}
@@ -280,21 +280,22 @@ h3,.format h3,.range-heading h3,.cuvee-title h3,.legal h2,
  .cuvee:hover .cuvee-image .image-zoom img{transform:scale(calc(var(--bottle-scale,1.2) * 1.025))}
 }
 
-/* Centre the identity independently of the navigation and mobile menu. */
-.header{height:auto;min-height:0;display:grid;grid-template-columns:1fr auto 1fr;gap:18px;padding:18px 5% 20px}
-.header .brand{grid-column:2;justify-self:center;flex-direction:column;max-width:none;gap:8px;text-align:center}
-.header .brand-logo.brand-logo--official{width:180px;height:108px;flex:0 0 108px}
-.header .brand-tagline{font-size:.6875rem;letter-spacing:.12em}
-.header .brand-tagline small{display:inline;font-size:inherit;margin:0 0 0 .5em;letter-spacing:inherit}
-.header nav{grid-column:1 / -1;justify-content:center;flex-wrap:wrap;width:100%;gap:16px 34px;padding:0}
-.header .menu-toggle{grid-column:3;grid-row:1;justify-self:end;align-self:center}
+/* Header in the dark blue used behind the official logo. */
+.header{height:auto;min-height:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px;padding:18px 5%;background:#033f5d;color:#f5f3ea;border-bottom-color:#033f5d}
+.header .brand{grid-column:1;justify-self:start;flex-direction:column;max-width:none;gap:8px;text-align:center}
+.header .brand-logo.brand-logo--official{width:240px;height:135px;flex:0 0 135px}
+.header .brand-tagline{max-width:none;font-size:var(--text-meta);letter-spacing:.04em;white-space:nowrap}
+.header nav{grid-column:2;justify-content:flex-end;flex-wrap:wrap;width:100%;gap:16px 28px;padding:0}
+.header nav a{font-weight:700}
+.header .nav-contact,.header .menu-toggle{color:inherit;border-color:currentColor}
+.header .menu-toggle{grid-column:2;grid-row:1;justify-self:end;align-self:center;font-weight:700}
+.header a:focus-visible,.header button:focus-visible{outline-color:#ffe596}
 @media(max-width:720px){
- .header{padding:14px 5%;column-gap:0;row-gap:14px;grid-template-columns:1fr minmax(0,180px) 1fr}
- .header .brand-logo.brand-logo--official{width:150px;height:90px;flex-basis:90px}
- .header .brand-tagline{font-size:.5625rem;letter-spacing:.04em}
- .header .brand-tagline small{display:block;margin-top:3px}
+ .header{padding:14px 5%;gap:14px;grid-template-columns:minmax(0,1fr) auto}
+ .header .brand-logo.brand-logo--official{width:190px;height:107px;flex-basis:107px}
+ .header .brand-tagline{font-size:.75rem;letter-spacing:.02em}
  .header .menu-toggle{font-size:.75rem;padding:8px}
- .header nav{gap:12px 20px;padding:10px 0}
+ .header nav{grid-column:1 / -1;justify-content:flex-start;gap:12px 20px;padding:10px 0}
 }
 
 /* Locally hosted Embla galleries, with a scrollable fallback without JavaScript. */
